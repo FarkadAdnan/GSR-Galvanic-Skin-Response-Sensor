@@ -40,5 +40,47 @@ Chapter 3 code_Project_80 The second part 2 of "The Arduino World Book" code_Pro
 
 ![25](https://user-images.githubusercontent.com/35774039/161466078-8caebba7-76dc-4819-9df5-55916caa3a4a.JPG)
 ![545](https://user-images.githubusercontent.com/35774039/161466102-e4948b29-2faf-4465-8050-94a4e66133dd.JPG)
+ 
+ # Connections:
+ ![eqwasd](https://user-images.githubusercontent.com/35774039/161467394-85ed775c-1c4a-4dcf-be34-286991cb4c3d.JPG)
 
+# Code Arduino
 
+```
+/*
+ By:Farkad Adnan
+ E-mail: farkad.hpfa95@gmail.com
+ inst : farkadadnan
+ #farkadadnan , #farkad_adnan , فرقد عدنان#
+ FaceBook: كتاب عالم الاردوينو
+ inst : arduinobook
+ #كتاب_عالم_الاردوينو  #كتاب_عالم_الآردوينو 
+ */
+const int GSR=A0;
+int sensorValue=0;
+int gsr_average=0;
+
+void setup(){
+  Serial.begin(9600);
+}
+void loop(){
+  long sum=0;
+  for(int i=0;i<10;i++){
+      sensorValue=analogRead(GSR);
+      sum += sensorValue;
+      delay(5);
+      }
+   gsr_average = sum/10;
+   Serial.println(gsr_average);
+}
+```
+# Step 
+- الخطوة 1. انسخ الكود إلى Arduino IDE وقم بتحميله.
+- الخطوة 2. لا ترتدي مستشعر GSR.
+- الخطوة 3. انقر فوق Tools-> Serial Plotter من Arduino IDE
+- الخطوة 4. استخدم المفك اللولبي لضبط المقاوم حتى يصبح الناتج التسلسلي 512.
+- الخطوة 5. قم بارتداء مستشعر GSR.
+- الخطوة 6. سنرى الرسم البياني أدناه. يرجى التنفس العميق وانظر الاتجاهات.
+
+# Results
+![desc1](https://user-images.githubusercontent.com/35774039/161467926-5530f2a1-0d73-4141-8450-70e0b4b8292f.png)
